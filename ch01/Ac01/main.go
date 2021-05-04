@@ -4,18 +4,9 @@ import (
         "fmt"
         "log"
         "net/http"
-
-        "github.com/go-redis/redis/v7"
 )
 
-var dbClient *redis.Client
-var key = "pv"
-
-func init() {
-        dbClient = redis.NewClient(&redis.Options{
-                Addr:     "db:6379",
-        })
-}
+var pageView int64
 
 func main() {
         http.HandleFunc("/", handler)
@@ -24,8 +15,6 @@ func main() {
 
 func handler(w http.ResponseWriter, r *http.Request) {
         log.Printf("Ping from %s", r.RemoteAddr)
-        pageView, err := dbClient.Incr(key).Result()
-        if err != nil {
-                panic(err)
-        }
-        fmt.Fprintf(w, "Hello, you're visitor #%v.\n", pageView)
+        pageView++
+        fmt.Fprintf(w, "Hello, you're visitor #%d !", pageView)
+}
