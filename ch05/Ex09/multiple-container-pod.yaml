@@ -6,7 +6,9 @@ spec:
   containers:
     - name: first-container
       image: nginx
+      imagePullPolicy: IfNotPresent
     - name: second-container
+      imagePullPolicy: IfNotPresent
       image: ubuntu
       command:
         - /bin/bash
