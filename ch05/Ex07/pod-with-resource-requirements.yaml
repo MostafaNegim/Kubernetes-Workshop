@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: resource-requirements-pod
+spec:
+  containers:
+    - name: resource-requirements-pod
+      imagePullPolicy: IfNotPresent
+      image: nginx
+      resources:
+        limits:
+          memory: "128M"
+          cpu: "1"
+        requests:
+          memory: "64M"
+          cpu: "0.5"

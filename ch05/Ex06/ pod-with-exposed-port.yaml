@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name:  pod-with-exposed-port.yaml
+  name:  pod-with-exposed-port
 spec:
   containers:
     - name: container-with-exposed-port

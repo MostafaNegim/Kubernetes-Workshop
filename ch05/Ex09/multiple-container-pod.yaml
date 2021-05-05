@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: multi-container-pod
+spec:
+  containers:
+    - name: first-container
+      image: nginx
+    - name: second-container
+      image: ubuntu
+      command:
+        - /bin/bash
+        - -ce
+        - while :; do echo "."; sleep 5; done
