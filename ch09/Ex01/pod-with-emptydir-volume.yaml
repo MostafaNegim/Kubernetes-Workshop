@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-with-emptydir-volume
+spec:
+  containers:
+    - name: nginx-container
+      imagePullPolicy: IfNotPresent
+      image: nginx
+      volumeMounts:
+        - mountPath: /mounted-data
+          name: data-volume
+  volumes:
+    - name: data-volume
+      emptyDir: {}
